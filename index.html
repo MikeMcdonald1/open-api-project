@@ -4,17 +4,20 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" device="device-width, initial-scale=1.0"/>
         <title>Open API Project</title>
-        <link rel="stylesheet" href="cats/css/index.css"/>
+        <link rel="stylesheet" href="./css/index.css"/>
     </head>
     <body>
-        <h1>I Love Cats<h1>
+        <h1>What's Up With Cat!?<h1>
 
         <nav>
-            <button id="fetch-cat">Fetch Cat</button> <!-- endpoint 1 button-->
-            <button id="endpoint2-btn">Show Endpoint 2</button> <!-- endpoint 2 button-->
+            <a href="./cats/">Go to Cats Page</a> <!-- style to look like buttons, two nested flexboxes one left and one right two divs, put image and "button" together, add max and min widths to elements inside flexbox and flexbox container itself-->
+            <a href="./dogs/">Go to Dogs Page</a>
+            <!-- <button id="fetch-cat">Fetch Cat</button> endpoint 1 button -->
+            <!-- <button id="endpoint2-btn">Show Endpoint 2</button> endpoint 2 button -->
         </nav>
 
         <div id="catContainer"></div> <!-- Container for cat image-->
+ 
         <script src="js/index.js"></script>
     </body>
 </html>
