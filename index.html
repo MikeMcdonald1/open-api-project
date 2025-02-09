@@ -7,7 +7,20 @@
         <link rel="stylesheet" href="./css/index.css"/>
     </head>
     <body>
-        <h1>What's Up With Cat!?<h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/cats/">Cats</a></li>
+                <li><a href="/dogs/">Dogs</a></li>
+            </ul>
+        </nav>
+
+        <h1>Hypoallergenic Generator<h1>
+
+        <section>
+            <img src="images/cat-yellow.png" alt="cat-with-mask">
+            <img src="images/dog-blue.png" alt="dog-with-mask">
+        </section>
 
         <nav>
             <a href="./cats/">Go to Cats Page</a> <!-- style to look like buttons, two nested flexboxes one left and one right two divs, put image and "button" together, add max and min widths to elements inside flexbox and flexbox container itself-->
@@ -16,10 +29,6 @@
             <!-- <button id="fetch-cat">Fetch Cat</button> endpoint 1 button -->
             <!-- <button id="endpoint2-btn">Show Endpoint 2</button> endpoint 2 button -->
         </nav>
-
-        <section>I need to add a static image of sneezy cat and sneezy dog here. The photos will not change on landing page.</section>
-
-        <div id="catContainer"></div> <!-- Container for cat image. Do I even need this anymore??? -->
  
         <script src="js/index.js"></script>
     </body>

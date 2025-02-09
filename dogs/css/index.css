@@ -8,3 +8,10 @@ p {
     font-size: 1.5rem;
 }
 
+.navbar ul {
+    background-color: cyan; /* changes background color */
+    display: flex; /* creates flexbox display */
+    justify-content: right; /* aligns content to the right */
+    gap: 2rem; /* adds gap between list items */
+    list-style: none; /* gets rid of bullet points */
+}

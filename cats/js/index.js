@@ -49,7 +49,7 @@ select.addEventListener("change", (event) => {
     }).then((breedData) => {
         const hypo = document.createElement("h2");
         if (breedData.breeds[0].hypoallergenic === 1) {
-            hypo.innerText = "This cat breed will not cause allergies. You can pity-pat that kitty cat!"; //Add template literal here for `The ${breedName} cat breed will not cause allergies.`
+            hypo.innerText = "This cat breed will NOT cause allergies. You can pity-pat that kitty cat! Meow!"; //Add template literal here for `The ${breedName} cat breed will not cause allergies.`
         } else {
             hypo.innerText = "This cat breed will cause allergies. RUN!"; //Add template literal here for `The ${breedName} cat breed will cause allergies.`
         }

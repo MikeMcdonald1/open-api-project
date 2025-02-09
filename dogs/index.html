@@ -7,7 +7,20 @@
         <link rel="stylesheet" href="./css/index.css"/>
     </head>
     <body>
-        <p>Dog Page</p>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/cats/">Cats</a></li>
+                <li><a href="/dogs/">Dogs</a></li>
+            </ul>
+        </nav>
+        <p>Check to see if a dog breed is good.</p>
+        <select id="breedsSelector">
+            <option value="" selected disabled hidden>Select a Dog Breed</option>
+        </select>
+
+        <div id="dogContainer"></div> <!-- Container for dog image-->
+
         <script src="js/index.js"></script>
     </body>
 </html>
