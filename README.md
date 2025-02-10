@@ -7,7 +7,6 @@ This is my open API Project for the Introduction to Programming class at Code th
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage (screenshots, code examples, demos, external resources, etc)](#usage-screenshots-code-examples-demos-external-resources-etc)
-  - [Lessons Learned](#lessons-learned)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -17,6 +16,8 @@ This is my open API Project for the Introduction to Programming class at Code th
  git clone https://github.com/MikeMcdonald1/open-api-project2.git
 ```
 ## Usage (screenshots, code examples, demos, external resources, etc)
+Project
+
 To run project, open cloned repository files in a code editor like VS Code.
 Enable a Live Preview extension if not already using one.
 Open project with Live Server to see live preview of webpage in a browser.
@@ -32,14 +33,6 @@ The dog page functions as a "good dog" generator. There is a dropdown menu with 
 Choose a dog breed from the dropdown menu and a random photo of the dog breed will appear.
 Text will display below the photo saying whether the dog breed is good or not. 
 Since all dogs are essentially good at heart, this will be the only option displayed. This is meant to be humorous.
-
-*** The cat page was built with an open API. Each cat breed had various properties including hypoallergenic: true/false. There were links
-on their page for a version of the API using dogs instead of cats. After days of building the cat page, I realized the hard way that the dog open API DID NOT include this hypoallergenic property option. A compromise had to be made for dogs.
-
-I started to refactor using a different endpoint for dogs only such as breed group, life span, or temperament, but I thought the good dog/bad dog approach was a more fun and exciting. These other endpoints really wouldn't have matched up with the hypoallergenic cat idea. Neither does whether a dog breed is good or not, but at least it adds some fun to the experience. ***
-
-## Lessons Learned
-Always check to ensure all expected endpoint properties exist BEFORE building a project for days and days.
 
 ## Contributing
 1. Fork the repository.

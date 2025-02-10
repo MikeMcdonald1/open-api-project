@@ -1,3 +1,13 @@
+/* Color Palette 1 */
+color pallete 1{
+    background-color: #0267C1;
+    #0075C4
+    #EFA00B
+    #D65108
+    #591F0A
+}
+
+
 General Page Styling
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -8,7 +18,8 @@ body {
 /* Navigation Bar */
 .navbar {
     background-color: yellow;
-    position: fixed;
+    position: relative;
+    padding: 2px 0;
     top: 0;
     left: 0;
     width: 100%;
@@ -58,14 +69,24 @@ body {
 }
 
 .homepage-heading {
-    margin-top: 8rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     display: flex;
     justify-content: center;
 }
  
 img {
-    max-width: 35rem;
-    max-height: 35rem;
+    max-height: 400px;
+    max-width: 400px;
     border-radius: 2rem;
+    border: 10px solid pink;
+    margin-top: 10px;
+}
+
+.home-image {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 2rem;
+    border: 10px solid rgb(158, 156, 156);
+    margin-top: 10px;
 }
