@@ -1,17 +1,71 @@
-
-img {
-    max-width: 30rem;
-    max-height: 30rem;
+General Page Styling
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-p {
-    font-size: 1.5rem;
+/* Navigation Bar */
+.navbar {
+    background-color: yellow;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .navbar ul {
-    background-color: cyan; /* changes background color */
-    display: flex; /* creates flexbox display */
-    justify-content: right; /* aligns content to the right */
-    gap: 2rem; /* adds gap between list items */
-    list-style: none; /* gets rid of bullet points */
+    background-color: cyan;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 2rem; 
+    list-style: none; 
+}
+
+.navbar a {
+    color: darkblue;
+    font-size: 1.25rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: lightgray;
+}
+
+/* Main Section (Images and Links Styled as Button */
+.homepage-images {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.homepage-links { 
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.homepage-links a {
+    background-color: #199319;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+}
+
+.homepage-heading {
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+ 
+img {
+    max-width: 35rem;
+    max-height: 35rem;
+    border-radius: 2rem;
 }

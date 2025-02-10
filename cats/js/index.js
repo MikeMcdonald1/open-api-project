@@ -1,86 +1,116 @@
+// Get the dropdown element from the HTML
 const select = document.getElementById("breedsSelector");
 
+// API endpoint provides the cat breed data
 const catBreedsURL = "https://api.thecatapi.com/v1/breeds";
 
+// Fetch data from the API when the page loads
+    fetch(catBreedsURL).then((res) => {
+        // Check to see if response is successful
+        if (!res.ok) {
+            // If response is not ok, stop and throw error message
+            throw new Error("Invalid Request"); 
+        }
+            // Parse from JSON format to JS object
+            return res.json(); 
+
+    }).then((data) => {
+        // Log the first breed's name to the console (for testing)
+        console.log(data[0].name);
+        // Loop through all 67 breeds
+        for (let i=0; i < data.length; i++) {
+            // Store the current breed object
+            const breed = data[i];
+            // Create a new dropdown breed option element
+            const breedOption = document.createElement("option");
+            // Set breed option's text to the breed's name (displayed to user)
+            breedOption.innerText = breed.name;
+            // Set the breed option's value to the breed's unique ID (to fetch actual data)
+            breedOption.value = breed.id;
+            // Add the breed option to the dropdown menu
+            select.appendChild(breedOption);
+        }
+        // Log all breed data to the console (for testing)
+        console.log(data);
+    });
 
 
-
-fetch(catBreedsURL).then((res) => { // this will fetch ALL 67 breeds and related data when page loads
-    if (!res.ok) {
-        throw new Error("Invalid Request"); // If res is not ok throw error message
-    }
-        return res.json(); //parse from JSON into regular JS
-}).then((data) => {
-    console.log(data[0].name);
-    for (let i=0; i < data.length; i++) {
-        const breed = data[i];
-        const breedOption = document.createElement("option");
-        breedOption.innerText = breed.name; //setting name of specific option and displayed to user
-        breedOption.value = breed.id; // used to fetch actual data
-        select.appendChild(breedOption);
-    }
-    console.log(data);
-})
-
-
-
-select.addEventListener("change", (event) => {
+// Listen for a change event on the dropdown menu
+    select.addEventListener("change", (event) => {
+    // Get the selected breed's ID from the dropdown
     const selectedCatID = event.target.value;
+    // Log the selected breed ID (for testing)
     console.log(selectedCatID);
 
+// Fetch a random image for the selected breed
     fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${selectedCatID}`)
     .then((res) => {
+        // Check to see if response is successful
         if (!res.ok) {
-            throw new Error("Invalid Request"); // If res is not ok throw error message
+            // If response is not ok, stop and throw error message
+            throw new Error("Invalid Request");
         }
-            return res.json(); //parse from JSON into regular JS
+            // Parse from JSON format to JS object
+            return res.json();
         
     }).then((data) => {
-        console.log(data); //console log data to test and see useful data in console
-        const url = data[0].url; // Create a url variable for the data.url
+        // Console log data to inspect the API response (for testing)sd
+        console.log(data);
+        // Extract the image URL from the API response
+        const url = data[0].url;
 
-            // ! SECOND FETCH ADDED WITH MOHAMMAD'S HELP
+
+// Fetch detailed breed data using the image ID
     fetch(`https://api.thecatapi.com/v1/images/${data[0].id}?include_breeds=1`)
     .then((res) => {
+        // Check to see if response is successful
         if (!res.ok) {
-            throw new Error("Invalid Request"); // If res is not ok throw error message
+            // If response is not ok, stop and throw error message
+            throw new Error("Invalid Request");
         }
-            return res.json(); //parse from JSON into regular JS
+            // Parse from JSON format to JS object
+            return res.json(); 
+
     }).then((breedData) => {
+        // Create an <h2> element for hypoallergenic information
         const hypo = document.createElement("h2");
+        // Check IF the breed is hypoallergenic (1 = yes, 0 = no)
         if (breedData.breeds[0].hypoallergenic === 1) {
-            hypo.innerText = "This cat breed will NOT cause allergies. You can pity-pat that kitty cat! Meow!"; //Add template literal here for `The ${breedName} cat breed will not cause allergies.`
+            // Display text in <h2> element for 1 (hypoallergenic - will NOT cause allergies)
+            hypo.innerText = "This cat breed will NOT cause allergies. You can pity-pat that kitty cat! Meow!"; 
         } else {
-            hypo.innerText = "This cat breed will cause allergies. RUN!"; //Add template literal here for `The ${breedName} cat breed will cause allergies.`
+            // Display text in <h2> element for 0 (non-hypoallergenic WILL cause allergies)
+            hypo.innerText = "This cat breed will cause allergies. RUN!";
         }
      
-
-        const catImg = document.createElement("img"); // Create variable for cat image
-        catImg.src = url; // the source of the cat image becomes the url variable
-
-        const section = document.createElement("section"); // Create variable for cat image SECTION
-        section.appendChild(catImg); // Append cat image to the SECTION
-
-                // ! APPENDCHILD ADDED WITH MOHAMMAD'S HELP
+        // Create an <img> element for the cat image
+        const catImg = document.createElement("img");
+        // Set the image source to the extracted URL
+        catImg.src = url;
+        
+        // Create a <section> element to group the image and the h2 text
+        const section = document.createElement("section");
+        // Append the cat image to the section
+        section.appendChild(catImg);
+        // Append the hypoallergenic message to the section
         section.appendChild(hypo);
 
-        const container = document.getElementById("catContainer"); //Create variable for cat image CONTAINER
-        container.innerHTML = ""; // clear page to avoid stacked images
-        container.appendChild(section); // Append the SECTION to the CONTAINER
-
+        // Get the container where the content will be displayed
+        const container = document.getElementById("catContainer");
+        // Clear the container to remove previous images and messages to avoid stacked images
+        container.innerHTML = "";
+        // Add the section (with image and text) to the container
+        container.appendChild(section);
     })
-    
-
     }).catch((error) => {
+        // Log any errors that occur during the fetch
         console.error("Error fetching cat image:", error);
     });
 });
 
 // After choosing cat breed from dropdown....
 // COMPLETE 1. Displays the cat image CHECK!!! Logs ID in console 
-// ---I WOULD LIKE TO ADD THIS TO INNERTEXT AS TEMPLATE LITERAL 2. Displays the breed name (maybe this is unnecessary bc breed shows on dropdown menu when selected) 
-// COMPLETE 3. Displays the hypoallergenic status (1 or 0).
-// COMPLETE 4. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
-// COMPLETE 5. Maybe some text like: "Can I pet that dawg?" Y/N or "Can I pity-pat that kitty cat?" Y/N 
-// or something not dumb and funny and more serious like "Hypoallergenic: Yes" : "Hypoallergenic: No" etc.
+// COMPLETE 2. Displays the hypoallergenic status (1 or 0).
+// COMPLETE 3. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
+// COMPLETE 4. Add text displaying results for user
 

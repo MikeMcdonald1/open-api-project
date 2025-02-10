@@ -49,9 +49,9 @@ select.addEventListener("change", (event) => {
     }).then((breedData) => {
         const hypo = document.createElement("h2");
         if (breedData.breeds[0].hypoallergenic === 1) {
-            hypo.innerText = "This dog breed will not cause allergies. You can pity-pat that kitty cat!"; //Add template literal here for `The ${breedName} cat breed will not cause allergies.`
+            hypo.innerText = "This dog breed will not cause allergies."; 
         } else {
-            hypo.innerText = "Yes, this is a good doggie! ARF! ARF!"; //Add template literal here for `The ${breedName} cat breed will cause allergies.`
+            hypo.innerText = "Yes, this is a good doggie! ARF! ARF!";
         }
      
 
@@ -78,9 +78,8 @@ select.addEventListener("change", (event) => {
 
 // After choosing cat breed from dropdown....
 // COMPLETE 1. Displays the cat image CHECK!!! Logs ID in console 
-// ---I WOULD LIKE TO ADD THIS TO INNERTEXT AS TEMPLATE LITERAL 2. Displays the breed name (maybe this is unnecessary bc breed shows on dropdown menu when selected) 
-// COMPLETE 3. Displays the hypoallergenic status (1 or 0).
-// COMPLETE 4. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
-// COMPLETE 5. Maybe some text like: "Can I pet that dawg?" Y/N or "Can I pity-pat that kitty cat?" Y/N 
+// COMPLETE 2. Displays the hypoallergenic status (1 or 0).
+// COMPLETE 3. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
+// COMPLETE 4. Maybe some text like: "Can I pet that dawwwg?" Y/N or "Can I pity-pat that kitty cat?" Y/N 
 // or something not dumb and funny and more serious like "Hypoallergenic: Yes" : "Hypoallergenic: No" etc.
 
