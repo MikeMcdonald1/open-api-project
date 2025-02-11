@@ -1,23 +1,18 @@
-/* Color Palette 1 */
-color pallete 1{
-    background-color: #0267C1;
-    #0075C4
-    #EFA00B
-    #D65108
-    #591F0A
-}
-
-
-General Page Styling
+/* General Styling */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    color: #010201;
     margin: 0;
     padding: 0;
+    background-image: repeating-linear-gradient(to right, rgba(255, 166, 158, 0.25), rgba(255, 166, 158, 0.25) 0.5px, transparent 0.5px, transparent);
+    background-size: 10px 10px;
+    background-color: #f7f7f7;
 }
 
 /* Navigation Bar */
 .navbar {
-    background-color: yellow;
+    background-color: #3a7d44;
     position: relative;
     padding: 2px 0;
     top: 0;
@@ -26,67 +21,109 @@ body {
 }
 
 .navbar ul {
-    background-color: cyan;
+    background-color: #d0db97;
     display: flex;
     justify-content: right;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.25rem 2.5rem;
     gap: 2rem; 
     list-style: none; 
 }
 
 .navbar a {
-    color: darkblue;
+    background-color: #3a7d44;
+    color: white;
     font-size: 1.25rem;
-    padding: 1rem;
-    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.25rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbar a:hover {
-    background-color: lightgray;
+    background-color: #254d32;
 }
 
-/* Main Section (Images and Links Styled as Button */
-.homepage-images {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.homepage-links { 
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-    padding: 1rem;
-}
-
-.homepage-links a {
-    background-color: #199319;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    text-decoration: none;
-}
-
-.homepage-heading {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+/* Main Section (Images with Links Styled as a Button */
+.homepage-h1 {
     display: flex;
     justify-content: center;
 }
- 
-img {
-    max-height: 400px;
-    max-width: 400px;
+
+.homepage-h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.home-image {
+    max-height: 500px;
+    max-width: 500px;
     border-radius: 2rem;
     border: 10px solid pink;
     margin-top: 10px;
 }
 
-.home-image {
-    max-height: 200px;
-    max-width: 200px;
+.homepage-images {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 10rem;
+}
+
+.homepage-links { 
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+}
+
+.homepage-links a {
+    background-color: #3a7d44;
+    color: white;
+    padding: 1.5rem 5rem;
     border-radius: 2rem;
-    border: 10px solid rgb(158, 156, 156);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.homepage-cat-link {
+    margin-left: 6rem;
+}
+
+.homepage-dog-link {
+    margin-right: 3rem;
+}
+
+.homepage-links a:hover {
+    background-color: #254d32;
+}
+
+/* Cat and Dog page styling */
+.game-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#breedsSelector {
+    background-color: rgb(237, 237, 237);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+#catContainer, #dogContainer {
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+#catContainer img:hover, #dogContainer img:hover {
+    cursor: grab;
+}
+
+img {
+    max-height: 400px;
+    max-width: 400px;
+    border-radius: 2rem;
+    border: 10px solid pink;
     margin-top: 10px;
 }
