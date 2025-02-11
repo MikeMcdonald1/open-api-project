@@ -1,85 +1,111 @@
+// Get the dropdown element from the HTML
 const select = document.getElementById("breedsSelector");
 
+// API endpoint provides the cat breed data
 const dogBreedsURL = "https://api.thedogapi.com/v1/breeds";
 
-
-
-
-fetch(dogBreedsURL).then((res) => { // this will fetch ALL 67 breeds and related data when page loads
+// Fetch data from the API when the page loads
+fetch(dogBreedsURL).then((res) => { 
+    // Check to see if response is successful
     if (!res.ok) {
-        throw new Error("Invalid Request"); // If res is not ok throw error message
+        // If response is not ok, stop and throw error message
+        throw new Error("Invalid Request"); 
     }
-        return res.json(); //parse from JSON into regular JS
+        // Parse from JSON format to JS object
+        return res.json(); 
+
 }).then((data) => {
+      // Log the first breed's name to the console (for testing)
     console.log(data[0].name);
+       // Loop through all 67 breeds
     for (let i=0; i < data.length; i++) {
+        // Store the current breed object
         const breed = data[i];
+        // Create a new dropdown breed option element
         const breedOption = document.createElement("option");
-        breedOption.innerText = breed.name; //setting name of specific option and displayed to user
-        breedOption.value = breed.id; // used to fetch actual data
+         // Set breed option's text to the breed's name (displayed to user)
+        breedOption.innerText = breed.name; 
+        // Set the breed option's value to the breed's unique ID (to fetch actual data)
+        breedOption.value = breed.id; 
+        // Add the breed option to the dropdown menu
         select.appendChild(breedOption);
     }
+    // Log all breed data to the console (for testing)
     console.log(data);
-})
+});
 
 
-
-select.addEventListener("change", (event) => {
+// Listen for a change event on the dropdown menu
+    select.addEventListener("change", (event) => {
+    // Get the selected breed's ID from the dropdown
     const selectedDogID = event.target.value;
+    // Log the selected breed ID (for testing)
     console.log(selectedDogID);
 
+// Fetch a random image for the selected breed
     fetch(`https://api.thedogapi.com/v1/images/search?breed_ids=${selectedDogID}`)
     .then((res) => {
+        // Check to see if response is successful
         if (!res.ok) {
-            throw new Error("Invalid Request"); // If res is not ok throw error message
+            // If response is not ok, stop and throw error message
+            throw new Error("Invalid Request"); 
         }
-            return res.json(); //parse from JSON into regular JS
+            // Parse from JSON format to JS object
+            return res.json(); 
         
     }).then((data) => {
-        console.log(data); //console log data to test and see useful data in console
-        const url = data[0].url; // Create a url variable for the data.url
+        // Console log data to inspect the API response (for testing)
+        console.log(data); 
+        // Extract the image URL from the API response
+        const url = data[0].url; 
 
-            // ! SECOND FETCH ADDED WITH MOHAMMAD'S HELP
+
+// Fetch detailed breed data using the image ID
     fetch(`https://api.thedogapi.com/v1/images/${data[0].id}?include_breeds=1`)
     .then((res) => {
+        // Check to see if response is successful
         if (!res.ok) {
-            throw new Error("Invalid Request"); // If res is not ok throw error message
+            // If response is not ok, stop and throw error message
+            throw new Error("Invalid Request");
         }
-            return res.json(); //parse from JSON into regular JS
+            // Parse from JSON format to JS object
+            return res.json();
+
     }).then((breedData) => {
-        const hypo = document.createElement("h2");
+        // Create an <p> element for hypoallergenic information
+        const hypo = document.createElement("p");
+        hypo.classList.add("details");
+        // Check IF the breed is hypoallergenic (1 = yes, 0 = no)
         if (breedData.breeds[0].hypoallergenic === 1) {
+            // Display text in <p> element for 1
             hypo.innerText = "Yes, this is a good doggie! ARF! ARF!."; 
         } else {
+            // Display text in <p> element for 0
             hypo.innerText = "Yes, this is a good doggie! ARF! ARF!";
         }
      
+         // Create an <img> element for the cat image
+        const dogImg = document.createElement("img");
+        // Set the image source to the extracted URL
+        dogImg.src = url;
 
-        const dogImg = document.createElement("img"); // Create variable for dog image
-        dogImg.src = url; // the source of the dog image becomes the url variable
-
-        const section = document.createElement("section"); // Create variable for dog image SECTION
-        section.appendChild(dogImg); // Append dog image to the SECTION
-
-                // ! APPENDCHILD ADDED WITH MOHAMMAD'S HELP
+        // Create a <section> element to group the image and the h2 text
+        const section = document.createElement("section"); 
+        // Append the cat image to the section
+        section.appendChild(dogImg); 
+        // Append the hypoallergenic message to the section
         section.appendChild(hypo);
 
-        const container = document.getElementById("dogContainer"); //Create variable for dog image CONTAINER
-        container.innerHTML = ""; // clear page to avoid stacked images
-        container.appendChild(section); // Append the SECTION to the CONTAINER
-
+        // Get the container where the content will be displayed
+        const container = document.getElementById("dogContainer");
+        // Clear the container to remove previous images and messages to avoid stacked images
+        container.innerHTML = "";
+        // Add the section (with image and text) to the container
+        container.appendChild(section);
     })
-    
-
     }).catch((error) => {
+        // Log any errors that occur during the fetch
         console.error("Error fetching dog image:", error);
     });
 });
-
-// After choosing cat breed from dropdown....
-// COMPLETE 1. Displays the cat image CHECK!!! Logs ID in console 
-// COMPLETE 2. Displays the hypoallergenic status (1 or 0).
-// COMPLETE 3. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
-// COMPLETE 4. Maybe some text like: "Can I pet that dawwwg?" Y/N or "Can I pity-pat that kitty cat?" Y/N 
-// or something not dumb and funny and more serious like "Hypoallergenic: Yes" : "Hypoallergenic: No" etc.
 

@@ -54,7 +54,7 @@ const catBreedsURL = "https://api.thecatapi.com/v1/breeds";
             return res.json();
         
     }).then((data) => {
-        // Console log data to inspect the API response (for testing)sd
+        // Console log data to inspect the API response (for testing)
         console.log(data);
         // Extract the image URL from the API response
         const url = data[0].url;
@@ -72,14 +72,15 @@ const catBreedsURL = "https://api.thecatapi.com/v1/breeds";
             return res.json(); 
 
     }).then((breedData) => {
-        // Create an <h2> element for hypoallergenic information
-        const hypo = document.createElement("h2");
+        // Create an <p> element for hypoallergenic information
+        const hypo = document.createElement("p");
+        hypo.classList.add("details");
         // Check IF the breed is hypoallergenic (1 = yes, 0 = no)
         if (breedData.breeds[0].hypoallergenic === 1) {
-            // Display text in <h2> element for 1 (hypoallergenic - will NOT cause allergies)
+            // Display text in <p> element for 1 (hypoallergenic - will NOT cause allergies)
             hypo.innerText = "This cat breed will NOT cause allergies. You can pity-pat that kitty cat! Meow!"; 
         } else {
-            // Display text in <h2> element for 0 (non-hypoallergenic WILL cause allergies)
+            // Display text in <p> element for 0 (non-hypoallergenic WILL cause allergies)
             hypo.innerText = "This cat breed will cause allergies. RUN!";
         }
      
@@ -107,10 +108,3 @@ const catBreedsURL = "https://api.thecatapi.com/v1/breeds";
         console.error("Error fetching cat image:", error);
     });
 });
-
-// After choosing cat breed from dropdown....
-// COMPLETE 1. Displays the cat image CHECK!!! Logs ID in console 
-// COMPLETE 2. Displays the hypoallergenic status (1 or 0).
-// COMPLETE 3. The hypoallergenic status should be converted to "yes" or "no" from 1 or 0, respectively
-// COMPLETE 4. Add text displaying results for user
-

@@ -1,4 +1,5 @@
 /* General Styling */
+
 body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.3rem;
@@ -44,7 +45,7 @@ body {
     background-color: #254d32;
 }
 
-/* Main Section (Images with Links Styled as a Button */
+/* Main Section (Images with Links Styled as a Button) */
 .homepage-h1 {
     display: flex;
     justify-content: center;
@@ -61,6 +62,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -69,11 +71,13 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    gap: 3rem;
 }
 
 .home-image {
-    max-height: 500px;
-    max-width: 500px;
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
     border-radius: 2rem;
     border: 10px solid pink;
     margin-top: 10px;
@@ -88,11 +92,7 @@ body {
     cursor: pointer;
 }
 
-.homepage-cat-link a:hover {
-    background-color: #254d32;
-}
-
-.homepage-dog-link a:hover {
+.homepage-cat-link:hover, .homepage-dog-link:hover {
     background-color: #254d32;
 }
 
@@ -130,13 +130,20 @@ img {
     margin-top: 10px;
 }
 
+.details {
+    max-width: 40rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
 /* Tablet style CSS */
 
 @media (max-width: 1024px) {
     body {
-        background-color: teal;
         font-size: 1.1rem;
         padding-top: 1.5rem;
+        margin: 0;
+        padding: 0;
     }
 
     .home-image {
@@ -151,9 +158,10 @@ img {
 
 @media (max-width: 650px) {
     body {
-        background-color: maroon;
         font-size: 1.1rem;
         padding-top: 10px;
+        margin: 0;
+        padding: 0;
     } 
 
     .navbar ul {
@@ -178,14 +186,24 @@ img {
 
     .homepage-pet-pair-container {
         flex-direction: column;
+        align-items: center;
+        gap: 3rem;
     }
 
     .home-image {
-        max-height: 200px;
-        max-width: 200px;
+        max-height: 350px;
+        max-width: 350px;
         border-radius: 2rem;
         border: 3px solid pink;
+    }
 
-
+    .homepage-cat-link, .homepage-dog-link {
+        background-color: #3a7d44;
+        color: white;
+        font-size: 1.2rem;
+        padding: 1rem 3rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        cursor: pointer;
     }
 }
