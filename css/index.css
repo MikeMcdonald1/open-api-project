@@ -5,9 +5,9 @@ body {
     color: #010201;
     margin: 0;
     padding: 0;
-    background-image: repeating-linear-gradient(to right, rgba(255, 166, 158, 0.25), rgba(255, 166, 158, 0.25) 0.5px, transparent 0.5px, transparent);
-    background-size: 10px 10px;
-    background-color: #f7f7f7;
+    background-image: repeating-linear-gradient(to right, rgba(255, 191, 202, 0.35), rgba(255, 191, 202, 0.10) 1px, transparent 1px, transparent);
+    background-size: 15px 15px;
+    background-color: #f4f4f4;
 }
 
 /* Navigation Bar */
@@ -51,10 +51,24 @@ body {
 }
 
 .homepage-h2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.homepage-pet-pair-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.homepage-pet-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .home-image {
@@ -65,36 +79,20 @@ body {
     margin-top: 10px;
 }
 
-.homepage-images {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 2rem 10rem;
-}
-
-.homepage-links { 
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0.5rem;
-}
-
-.homepage-links a {
+.homepage-cat-link, .homepage-dog-link {
     background-color: #3a7d44;
     color: white;
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 2rem;
     border-radius: 2rem;
     text-decoration: none;
     cursor: pointer;
 }
 
-.homepage-cat-link {
-    margin-left: 6rem;
+.homepage-cat-link a:hover {
+    background-color: #254d32;
 }
 
-.homepage-dog-link {
-    margin-right: 3rem;
-}
-
-.homepage-links a:hover {
+.homepage-dog-link a:hover {
     background-color: #254d32;
 }
 
@@ -103,6 +101,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.game-page-heading {
+    text-align: center;
 }
 
 #breedsSelector {
@@ -126,4 +128,64 @@ img {
     border-radius: 2rem;
     border: 10px solid pink;
     margin-top: 10px;
+}
+
+/* Tablet style CSS */
+
+@media (max-width: 1024px) {
+    body {
+        background-color: teal;
+        font-size: 1.1rem;
+        padding-top: 1.5rem;
+    }
+
+    .home-image {
+        max-height: 350px;
+        max-width: 350px;
+        border-radius: 2rem;
+        border: 5px solid pink;
+    }
+}
+
+/* Mobile style CSS */
+
+@media (max-width: 650px) {
+    body {
+        background-color: maroon;
+        font-size: 1.1rem;
+        padding-top: 10px;
+    } 
+
+    .navbar ul {
+        background-color: #d0db97;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding: 1.25rem 2.5rem;
+        gap: 1rem; 
+        list-style: none; 
+    }
+
+    .navbar a {
+        background-color: #3a7d44;
+        color: white;
+        font-size: 1rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1.25rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .homepage-pet-pair-container {
+        flex-direction: column;
+    }
+
+    .home-image {
+        max-height: 200px;
+        max-width: 200px;
+        border-radius: 2rem;
+        border: 3px solid pink;
+
+
+    }
 }

@@ -49,7 +49,7 @@ select.addEventListener("change", (event) => {
     }).then((breedData) => {
         const hypo = document.createElement("h2");
         if (breedData.breeds[0].hypoallergenic === 1) {
-            hypo.innerText = "This dog breed will not cause allergies."; 
+            hypo.innerText = "Yes, this is a good doggie! ARF! ARF!."; 
         } else {
             hypo.innerText = "Yes, this is a good doggie! ARF! ARF!";
         }
