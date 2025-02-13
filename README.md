@@ -15,9 +15,7 @@ This is my open API Project for the Introduction to Programming class at Code th
 ```bash
  git clone https://github.com/MikeMcdonald1/open-api-project2.git
 ```
-## Usage (screenshots, code examples, demos, external resources, etc)
-Project
-
+## Usage
 To run project, open cloned repository files in a code editor like VS Code.
 Enable a Live Preview extension if not already using one.
 Open project with Live Server to see live preview of webpage in a browser.
